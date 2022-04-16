@@ -2,15 +2,15 @@ const inputResultat = document.querySelector("#resultat");
 const divTouches = document.querySelector("#touches");
 const divRecap = document.querySelector("#recap");
 
-var chiffreSaisi = "";
-var operateur = "+";
-var recap = "";
-var resultat = 0;
+let  chiffreSaisi = "";
+let  operateur = "+";
+let  recap = "";
+let  resultat = 0;
 
-var nbCalcul = 0;
-var reinit = true;
+let  nbCalcul = 0;
+let  reinit = true;
 
-divTouches.addEventListener("click", function (e) {
+divTouches.addEventListener("click",  (e) => {
     var button = e.target.id;
     if (button.substring(0, 1) === "c") {
         chiffreSaisi += button.substring(1, 2);
@@ -47,7 +47,7 @@ divTouches.addEventListener("click", function (e) {
     divRecap.scrollTop = divRecap.scrollHeight - divRecap.clientHeight;
 });
 
-function manageOperation() {
+const manageOperation = () => {
     if (chiffreSaisi !== "") {
         resultat = doOperation(operateur, resultat, parseFloat(chiffreSaisi));
         if (nbCalcul > 0) {
@@ -62,7 +62,7 @@ function manageOperation() {
     }
 }
 
-function doOperation(operateur, chiffreA, chiffreB) {
+const doOperation = (operateur, chiffreA, chiffreB) => {
     var calcul = 0;
     switch (operateur) {
         case "+": calcul = chiffreA + chiffreB;
